@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bgbody{
+            background-color:blueviolet;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+              color: #fdfafa;
+               font-size: 9pt;
+        }
+        button{
+            background-color: rgb(108, 9, 200);
+            color: white;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body class="bgbody px-2" >
+
+    <div class="container my-5  col-12 bg-white p-2 rounded">
+        <div class="card-body rounded m-3" style="  box-shadow: 10px 10px rgb(4, 4, 4); background-color:lightseagreen;z-index: 5;">
+            <div class="row ">
+                <div class="col-md-6  xs-d-none md-d-block col-12  ">
+
+                </div>
+            
+
+                <div class="col-md-6 col-12"> 
+                              <h1 class="text-start ms-5 text-black  display-6 py-3">Enter Details</h1>
+                              <form action="/myform" class="px-5" method='post' >
+
+                                <h6 id="nameerror" class="mt-2">Name</h6>
+
+                                <input type="text" id="name" name="name" class="col-md-7 col-12 py-2 rounded  border-1 border-black">
+                              
+                                <h6 id="ageerror"  class="mt-2">Age</h6>
+
+                                <input type="text" id="age" name="age" class="col-12 col-md-7 py-2 rounded  border-1 border-black">
+
+                                <h6 id="numbererror"  class="mt-2">Number</h6>
+
+                                <input type="text" name="number" id="number" class="col-12 col-md-7 py-2 rounded border-1 border-black">
+
+                                <h6 id="emaileerror"  class="mt-2"> Email</h6>
+
+                                <input type="text" id="email" name="email" class="col-12 col-md-7 py-2 rounded  border-1 border-black">
+
+                                <div class="row col-12 ms-0  my-4 ">
+
+                                    <button type="submit" id="" onsubmit="return validateform(event)"   class="  col-md-7 col-12 border-0 p-2   rounded  my-0"> Edit</button>
+                                    
+                                </div> 
+
+                            </form>
+                            <div class="row col-12 my-4 ">
+
+                            
+                                    <form action="/home" method="post" class="">
+                                        <button type="submit" id=""    class="col-md-6 col-9 border-0 p-2  rounded ms-5  my-0 mb-5 "> HOME </button>
+
+                                    </form>
+                            </div>
+                </div>
+
+
+            </div>
+           
+        </div>
+
+    </div>
+    <script>
+
+        function validateform(event){
+            event.preventDefault();
+             
+            const username=document.getElementById('name')
+            const name=username.value;
+            const nameerror =document.getElementById('nameerror');
+            const userage =document.getElementById('age')
+            const age=userage.value
+            const ageerror=document.getElementById('ageerror')
+            const usernum =document.getElementById('number')
+            const num=usernum.value
+            const numbererror=document.getElementById('numbererror')
+            const useremail=document.getElementById('email')
+            const email=useremail.value
+            const emailerror =document.getElementById('emaileerror')
+
+
+            if(name === ''){
+                nameerror.innerHTML=(`<span style="color:red">Enter Name *<span>`)
+                    return false
+
+            }
+            else{
+                nameerror.innerHTML=('Name')
+                
+            }
+            if(age ===''){
+              ageerror.innerHTML=(`<span style="color:red">Enter Age *<span>`)
+                return false
+
+
+            }else if(isNaN(age)){
+                ageerror.innerHTML=(`<span style="color:red">Age Must be Number *<span>`)
+
+            }
+            else{
+                ageerror.innerHTML=('Age')
+            }
+            if(num===''){
+
+                return false
+
+                numbererror.innerHTML=(`<span style="color:red">Enter Number *<span>`)
+
+            }
+             else if(!/^\d{10}$/.test(num)){
+            numbererror.innerHTML=(`<span style="color:red">Enter 10 Digit Number *<span>`)
+                return false
+
+            }else{
+            numbererror.innerHTML=('Number')
+
+
+          }
+         const emailptn = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+         if (email.trim() === '') {
+    emailerror.innerHTML = (`<span style="color:red">Enter Valid Email *</span>`);
+    return false
+
+} else {
+    emailerror.innerHTML = ('Email');
+    if (!emailptn.test(email)) {
+        emailerror.innerHTML = (`<span style="color:red">Enter Valid*</span>`);
+    } else {
+        emailerror.innerHTML = ('Email');
+    }
+}
+
+return true;  // Add this line to prevent form submission if email is valid
+  
+        }
+
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>

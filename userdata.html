@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+            display: block; /* Make the anchor tag a block element */
+        }
+    </style>
+</head>
+<body>
+
+<tr class="row border border-2 border-black rounded-2 ms-2 my-1 text-start text-md-center ">
+    <td class="col-md-2 col-12 mt-2">{{%name}}</td>
+    <td class="col-md-1 col-12 mt-2">{{%age}}</td>
+    <td class="col-md-4 col-12 mt-2">{{%email}}</td>
+    <td class="col-md-2 col-12 mt-2">{{%number}}</td>
+    <td class="row col-md-3 col-12">
+        <form action="/edit" method="GET" class="col-6">
+            <button class="col-md-12 col-12 ms-1-0 p-1 text-6 p-1 my-1 border rounded">
+                <a href="/edit?id={{%id}}"  class="text-white" style="text-decoration: none;">Edit</a>
+            </button>
+        </form>
+        <form action="/delete" method="GET " class="col-6">
+            <button class="col-md-12 col-12 m-0 text-6 p-0 p-1 my-1 border rounded">
+                <a href="/delete?id={{%did}}" class="text-white" style="text-decoration: none;">Delete</a>
+            </button>
+        </form>
+    </td>
+</tr>
+
+</body>
+</html>

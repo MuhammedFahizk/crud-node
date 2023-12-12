@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "chokidar": "^3.5.3",
+    "ejs": "^3.1.9",
+    "events": "^3.3.0",
+    "uuid": "^9.0.1"
+  }
+}
